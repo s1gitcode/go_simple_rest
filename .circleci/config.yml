@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.14
+    working_directory: /go/src/github.com/wilsontwm/go_simple_rest
+    steps:
+      - checkout
+      - run: echo "Hello there"
+      - run: go build .
+      - run: cd test && go test -v
